@@ -1,0 +1,15 @@
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\bin\Release\netstandard2.0\delivery.deps.json
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\bin\Release\netstandard2.0\delivery.dll
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\bin\Release\netstandard2.0\ref\delivery.dll
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\bin\Release\netstandard2.0\delivery.pdb
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.csprojAssemblyReference.cache
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\App.xaml.g.cs
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\Cart.xaml.g.cs
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.AssemblyInfoInputs.cache
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.AssemblyInfo.cs
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.csproj.CoreCompileInputs.cache
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\XamlC.stamp
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.dll
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\ref\delivery.dll
+C:\Users\Imposter\source\repos\delivery\delivery\delivery\obj\Release\netstandard2.0\delivery.pdb

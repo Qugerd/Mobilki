@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:delivery"
+             x:Class="delivery.Cart"
+             Title="Корзина">
+
+    <StackLayout>
+        <ListView x:Name="goods_list"  HasUnevenRows="true" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="30" HeightRequest="100" >
+
+                            <Image Source="{Binding ImageUrl}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="100"
+                                   WidthRequest="80"/>
+
+                            <Label HorizontalOptions="StartAndExpand"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Name}"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"/>
+
+                            <Label Text="{Binding Count}"
+                                   HorizontalOptions="EndAndExpand"
+                                   VerticalOptions="Center"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"/>
+
+                            <Button Text="X"    
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="End"                                    
+                                    CommandParameter="{Binding Name}"
+                                    WidthRequest="50"
+                                    Clicked="buttonDelete_clicked"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+
+
+
+</ContentPage>
