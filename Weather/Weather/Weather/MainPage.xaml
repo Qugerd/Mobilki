@@ -7,7 +7,7 @@
 
     <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal">
-            <Entry x:Name="Editor" Placeholder="London" Keyboard="Text" HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="Editor" Placeholder="London" Keyboard="Text" HorizontalOptions="FillAndExpand" Completed="OnEditorCompleted"/>
             <ImageButton x:Name="ButtonCheck" Source="search.png" HorizontalOptions="End" Clicked="ButtonCheck_Clicked" BackgroundColor="Transparent"/>
         </StackLayout>
         <StackLayout Spacing="0">

@@ -484,3 +484,4 @@ C:\Users\Imposter\source\repos\Weather\Weather\Weather.Android\obj\Debug\90\stam
 C:\Users\Imposter\source\repos\Weather\Weather\Weather.Android\obj\Debug\90\stamp\_GenerateJavaStubs.stamp
 C:\Users\Imposter\source\repos\Weather\Weather\Weather.Android\obj\Debug\90\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\Imposter\source\repos\Weather\Weather\Weather.Android\obj\Debug\90\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\Imposter\source\repos\Weather\Weather\Weather.Android\obj\Debug\90\res\drawable\p.ico

@@ -152,7 +152,7 @@
 
 	/* 16: Weather.dll */
 	/* uncompressed_file_size */
-	.word	109056
+	.word	109568
 	/* loaded */
 	.byte	0
 	/* data */
