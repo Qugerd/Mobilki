@@ -9,6 +9,7 @@ namespace Weather
 {
     class WeatherJson
     {
+        public Coord coord { get; set; }
         public Weather[] weather{ get; set; }
         public string Name { get; set; }
         public Temperature Main { get; set; }
@@ -18,6 +19,12 @@ namespace Weather
         public SysINF sys { get; set; }
     }
 
+    class Coord
+    {
+        public double lon { get; set; }
+        public double lat { get; set; }
+
+    }
     class Temperature
     {
         public double temp { get; set; }

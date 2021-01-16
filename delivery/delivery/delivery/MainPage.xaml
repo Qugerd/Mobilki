@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="delivery.MainPage"
-             Title="Доставка какаШЭК">
+             Title="Доставка ВОДы">
 
     <StackLayout>
         <ListView ItemsSource="{Binding Drinks}"
@@ -50,7 +50,7 @@
             </ListView.ItemTemplate>            
         </ListView>
         
-        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" >
+        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
             <Button Text="Корзина" HorizontalOptions="FillAndExpand" Clicked="buttonOrder_clicked"/>
         </StackLayout>
         

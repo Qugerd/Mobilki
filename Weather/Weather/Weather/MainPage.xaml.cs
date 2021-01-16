@@ -21,13 +21,26 @@ namespace Weather
         public double Longitude { get; set; }
 
         public string cityName = "Moscow";
-
         
         public MainPage()
         {
             InitializeComponent();
-            GetCurrentLocation();
-            GetWeatherInfo(cityName);            
+            InternetInfo();                   
+        }
+
+        private async void InternetInfo()
+        {
+            var current = Connectivity.NetworkAccess;
+
+            if (current == NetworkAccess.Internet)
+            {
+                GetCurrentLocation();
+                GetWeatherInfo(cityName);
+            }
+            else
+            {
+                await DisplayAlert("Ошибка", "Нет доступа к интенету", "Понял");
+            }
         }
 
         private void GetWeatherInfo(string cityName)
@@ -44,8 +57,23 @@ namespace Weather
                 response = streamReader.ReadToEnd();
             }
 
-            WeatherJson weatherJason = JsonConvert.DeserializeObject<WeatherJson>(response);
+            WeatherJson weatherJason = JsonConvert.DeserializeObject<WeatherJson>(response);           
 
+            string url2 = $"https://api.openweathermap.org/data/2.5/onecall?lat={weatherJason.coord.lat}&lon={weatherJason.coord.lon}&exclude=alerts,minutely&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6";
+            HttpWebRequest httpWebRequest2 = (HttpWebRequest)WebRequest.Create(url2);
+            HttpWebResponse httpWebResponse2 = (HttpWebResponse)httpWebRequest2.GetResponse();
+
+            string response2;
+
+            using (StreamReader streamReader = new StreamReader(httpWebResponse2.GetResponseStream()))
+            {
+                response2 = streamReader.ReadToEnd();
+            }
+
+            WeatherJasonOneCall weatherJason2 = JsonConvert.DeserializeObject<WeatherJasonOneCall>(response2);
+
+            LabelData.Text = UnixTimeToDateTime(weatherJason2.daily[0].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            LabelDayNight.Text = $"Днем {weatherJason2.daily[0].temp.day}/Ночью {weatherJason2.daily[0].temp.eve}";
             LabelTemp.Text = weatherJason.Main.temp.ToString("0") + "°C";
             LabelCity.Text = weatherJason.Name;
             LabelYasno.Text = weatherJason.weather[0].description;
@@ -54,6 +82,7 @@ namespace Weather
             LabelHumidityValue.Text = weatherJason.Main.humidity.ToString() + "%";
             LabelWindValue.Text = weatherJason.wind.speed.ToString("0") + "м/с";
             LabelCloudsValue.Text = weatherJason.clouds.all.ToString() + "%";
+            ImagePath.Source = $"https://openweathermap.org/img/wn/{weatherJason.weather[0].icon}@2x.png";
             LabelSunriseValue.Text = UnixTimeToDateTime(weatherJason.sys.sunrise).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
             LabelSunsetValue.Text = UnixTimeToDateTime(weatherJason.sys.sunset).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
         }
@@ -81,7 +110,8 @@ namespace Weather
                         response = streamReader.ReadToEnd();
                     }
                     WeatherJson kek = JsonConvert.DeserializeObject<WeatherJson>(response);
-
+                    
+                    
                     LabelTemp.Text = kek.Main.temp.ToString("0") + "°C";
                     LabelCity.Text = kek.Name;
                     LabelYasno.Text = kek.weather[0].description;
@@ -92,7 +122,7 @@ namespace Weather
                     LabelCloudsValue.Text = kek.clouds.all.ToString() + "%";
                     LabelSunriseValue.Text = UnixTimeToDateTime(kek.sys.sunrise).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
                     LabelSunsetValue.Text = UnixTimeToDateTime(kek.sys.sunset).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
-
+                    ImagePath.Source = $"https://openweathermap.org/img/wn/{kek.weather[0].icon}@2x.png";
                     await DisplayAlert("Ваше местоположение", $"Геолокация определила что ваш город {kek.Name}?", "Понял") ;
                     Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
                 }                
@@ -121,6 +151,7 @@ namespace Weather
         {
             DateTime origin = new DateTime(1970, 1, 1, 6, 0, 0);
             return origin.AddSeconds(UnixTime);
+
         }
 
         private async void OnEditorCompleted(object sender, EventArgs e)

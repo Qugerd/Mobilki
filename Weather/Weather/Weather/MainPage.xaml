@@ -5,44 +5,49 @@
              BackgroundImageSource="bg.jpg"
              >
 
+    
     <StackLayout Orientation="Vertical">
         <StackLayout Orientation="Horizontal">
             <Entry x:Name="Editor" Placeholder="London" Keyboard="Text" HorizontalOptions="FillAndExpand" Completed="OnEditorCompleted"/>
             <ImageButton x:Name="ButtonCheck" Source="search.png" HorizontalOptions="End" Clicked="ButtonCheck_Clicked" BackgroundColor="Transparent"/>
         </StackLayout>
         <StackLayout Spacing="0">
-            <Label x:Name="LabelCity" Text="Владисвосток" FontSize="25" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="LabelTemp" FontSize="70" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="LabelYasno" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="LabelFeelsLike" FontSize="20" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>            
+            <Label x:Name="LabelCity" Text="NoInfo" FontSize="25" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <Label x:Name="LabelTemp" Text="NoInfo" FontSize="70" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Image x:Name="ImagePath" MinimumWidthRequest="150" MinimumHeightRequest="150" HeightRequest="150" WidthRequest="150"/>
+            </StackLayout>
+            <Label x:Name="LabelYasno" Text="NoInfo" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Label x:Name="LabelFeelsLike" Text="NoInfo" FontAttributes="Italic" FontSize="20" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>            
+            <Label x:Name="LabelDayNight" Text="Днем / ночью" FontAttributes="Italic" FontSize="20" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>            
+            <Label x:Name="LabelData" Text="Дата" FontAttributes="Italic" FontSize="20" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>            
         </StackLayout>
         <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">            
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="labelPressure" Text="Атмосферное давление" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="labelPressureValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>                
+                <Label x:Name="labelPressureValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>                
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelHumidity" Text="Влажность" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="LabelHumidityValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                <Label x:Name="LabelHumidityValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
             </StackLayout> 
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelWind" Text="Скорость ветра" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="LabelWindValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                <Label x:Name="LabelWindValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
             </StackLayout> 
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelClouds" Text="Облачность" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="LabelCloudsValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                <Label x:Name="LabelCloudsValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
             </StackLayout> 
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelSunrise" Text="Восход солнца" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="LabelSunriseValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                <Label x:Name="LabelSunriseValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Label x:Name="LabelSunset " Text="Заход солнца" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
-                <Label x:Name="LabelSunsetValue" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                <Label x:Name="LabelSunsetValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
             </StackLayout>
-        </StackLayout>
-        
+        </StackLayout>        
     </StackLayout>
 
 </ContentPage>

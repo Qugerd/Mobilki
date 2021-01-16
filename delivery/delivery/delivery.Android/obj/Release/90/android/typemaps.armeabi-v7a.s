@@ -193,17 +193,17 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: 61bf6062-83f0-41b4-ade2-4a790724a4d3 */
-	.byte	0x62, 0x60, 0xbf, 0x61, 0xf0, 0x83, 0xb4, 0x41, 0xad, 0xe2, 0x4a, 0x79, 0x07, 0x24, 0xa4, 0xd3
+	/* module_uuid: d0906070-920c-4ebd-a390-173ac972b67c */
+	.byte	0x70, 0x60, 0x90, 0xd0, 0x0c, 0x92, 0xbd, 0x4e, 0xa3, 0x90, 0x17, 0x3a, 0xc9, 0x72, 0xb6, 0x7c
 	/* entry_count */
-	.long	1
+	.long	2
 	/* duplicate_count */
-	.long	0
+	.long	1
 	/* map */
 	.long	module7_managed_to_java
 	/* duplicate_map */
-	.long	0
-	/* assembly_name: delivery.Android */
+	.long	module7_managed_to_java_duplicates
+	/* assembly_name: Xamarin.Android.Arch.Lifecycle.LiveData.Core */
 	.long	.L.map_aname.7
 	/* image */
 	.long	0
@@ -212,17 +212,17 @@ map_modules:
 	/* java_map */
 	.long	0
 
-	/* module_uuid: d0906070-920c-4ebd-a390-173ac972b67c */
-	.byte	0x70, 0x60, 0x90, 0xd0, 0x0c, 0x92, 0xbd, 0x4e, 0xa3, 0x90, 0x17, 0x3a, 0xc9, 0x72, 0xb6, 0x7c
+	/* module_uuid: b56a8d73-e701-436b-8285-6c5a614e851a */
+	.byte	0x73, 0x8d, 0x6a, 0xb5, 0x01, 0xe7, 0x6b, 0x43, 0x82, 0x85, 0x6c, 0x5a, 0x61, 0x4e, 0x85, 0x1a
 	/* entry_count */
-	.long	2
-	/* duplicate_count */
 	.long	1
+	/* duplicate_count */
+	.long	0
 	/* map */
 	.long	module8_managed_to_java
 	/* duplicate_map */
-	.long	module8_managed_to_java_duplicates
-	/* assembly_name: Xamarin.Android.Arch.Lifecycle.LiveData.Core */
+	.long	0
+	/* assembly_name: delivery.Android */
 	.long	.L.map_aname.8
 	/* image */
 	.long	0
@@ -694,7 +694,7 @@ map_java:
 
 	/* #27 */
 	/* module_index */
-	.long	8
+	.long	7
 	/* type_token_id */
 	.long	33554437
 	/* java_name */
@@ -703,7 +703,7 @@ map_java:
 
 	/* #28 */
 	/* module_index */
-	.long	8
+	.long	7
 	/* type_token_id */
 	.long	33554436
 	/* java_name */
@@ -6724,7 +6724,7 @@ map_java:
 
 	/* #697 */
 	/* module_index */
-	.long	7
+	.long	8
 	/* type_token_id */
 	.long	33554434
 	/* java_name */

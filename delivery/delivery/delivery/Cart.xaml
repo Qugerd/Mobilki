@@ -10,7 +10,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="30" HeightRequest="100" >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="FillAndExpand" Spacing="10" HeightRequest="100" >
 
                             <Image Source="{Binding ImageUrl}"
                                    Aspect="AspectFill"
@@ -21,27 +21,54 @@
                                    VerticalOptions="Center"
                                    Text="{Binding Name}"
                                    FontAttributes="Bold"
-                                   FontSize="Large"/>
+                                   FontSize="Medium"/>
+                            
+                            <Button Text="-" 
+                                    WidthRequest="50"                                     
+                                    FontAttributes="Bold"
+                                    Clicked="buttonMinus_clicked" 
+                                    CommandParameter="{Binding Name}" 
+                                    HorizontalOptions="EndAndExpand" 
+                                    VerticalOptions="Center" 
+                                    CornerRadius="25"
+                                    BorderWidth="2"
+                                    BorderColor="Gray" 
+                                    FontSize="Large"/>
 
-                            <Label Text="{Binding Count}"
+                            <Label Text="{Binding Count}"                                   
                                    HorizontalOptions="EndAndExpand"
                                    VerticalOptions="Center"
-                                   FontSize="Large"
+                                   FontSize="Medium"
                                    FontAttributes="Bold"/>
+
+                            
+                            <Button Text="+" 
+                                    Clicked="buttonPlus_clicked" 
+                                    CommandParameter="{Binding Name}" 
+                                    WidthRequest="50"
+                                    HorizontalOptions="EndAndExpand"
+                                    VerticalOptions="Center" 
+                                    CornerRadius="25"
+                                    BorderWidth="2"
+                                    BorderColor="Gray" 
+                                    FontSize="Large"/>
 
                             <Button Text="X"    
                                     VerticalOptions="Center"
                                     HorizontalOptions="End"                                    
                                     CommandParameter="{Binding Name}"
                                     WidthRequest="50"
-                                    Clicked="buttonDelete_clicked"/>
+                                    Clicked="buttonDelete_clicked"
+                                    TextColor="Red"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <Button Text="Confirm" Clicked="Button_Clicked" HorizontalOptions="Center" VerticalOptions="End" FontAttributes="Bold" FontSize="20" CornerRadius="10" BackgroundColor="IndianRed" Margin="5"/>
     </StackLayout>
 
+   
 
 
 
