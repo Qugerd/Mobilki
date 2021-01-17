@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Weather.MainPage"
+             BackgroundColor="#E3E4E6">
+
+    <ScrollView>
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="Editor" Placeholder="London" Keyboard="Text" HorizontalOptions="FillAndExpand" Completed="OnEditorCompleted"/>
+                <ImageButton x:Name="ButtonCheck" Source="search.png" HorizontalOptions="End" Clicked="ButtonCheck_Clicked" BackgroundColor="Transparent"/>
+            </StackLayout>
+            <StackLayout Spacing="0">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                    <Label x:Name="LabelCity" Text="NoInfo" FontSize="25" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>                    
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                    <Label x:Name="LabelTemp" Text="NoInfo" FontSize="70" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Image x:Name="ImagePath" MinimumWidthRequest="150" MinimumHeightRequest="150" HeightRequest="150" WidthRequest="150"/>
+                </StackLayout>
+                <Label x:Name="LabelYasno" Text="NoInfo" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label x:Name="LabelFeelsLike" Text="NoInfo" FontAttributes="Italic" FontSize="20" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <ScrollView Orientation="Horizontal" Padding="20">
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__0" Text="00:00"/>
+                            <Image x:Name="image__0" />
+                            <Label x:Name="labelTemp__0" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__1" Text="00:00"/>
+                            <Image x:Name="image__1" />
+                            <Label x:Name="labelTemp__1" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__2" Text="00:00"/>
+                            <Image x:Name="image__2" />
+                            <Label x:Name="labelTemp__2" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__3" Text="00:00"/>
+                            <Image x:Name="image__3" />
+                            <Label x:Name="labelTemp__3" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__4" Text="00:00"/>
+                            <Image x:Name="image__4" />
+                            <Label x:Name="labelTemp__4" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__5" Text="00:00"/>
+                            <Image x:Name="image__5" />
+                            <Label x:Name="labelTemp__5" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__6" Text="00:00"/>
+                            <Image x:Name="image__6" />
+                            <Label x:Name="labelTemp__6" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__7" Text="00:00"/>
+                            <Image x:Name="image__7" />
+                            <Label x:Name="labelTemp__7" Text="-8"/>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label x:Name="label__8" Text="00:00"/>
+                            <Image x:Name="image__8" />
+                            <Label x:Name="labelTemp__8" Text="-8"/>
+                        </StackLayout>
+                    </StackLayout>
+
+                   
+                </ScrollView>
+            </StackLayout>
+            <StackLayout Spacing="10" Padding="20" VerticalOptions="Center">
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="labelDayNight" Text="Днём/Ночью" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="labelDayNightValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="labelPressure" Text="Атмосферное давление" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="labelPressureValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelHumidity" Text="Влажность" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="LabelHumidityValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelWind" Text="Скорость ветра" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="LabelWindValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelClouds" Text="Облачность" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="LabelCloudsValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelSunrise" Text="Восход солнца" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="LabelSunriseValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="LabelSunset " Text="Заход солнца" FontSize="20" TextColor="Black" HorizontalOptions="FillAndExpand"/>
+                    <Label x:Name="LabelSunsetValue" FontAttributes="Italic" Text="NoInfo" FontSize="20" TextColor="Black" HorizontalOptions="End"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Padding="20">
+                <Label Text="Погода на 7дн" FontSize="Title" TextColor="Black"/>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label Text="Cегодня" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription0" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight0" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center" HorizontalTextAlignment="Center"/>                    
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_1" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_1" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_1" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_1" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_2" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_2" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_2" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_2" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_3" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_3" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_3" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_3" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_4" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_4" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_4" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_4" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_5" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_5" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_5" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_5" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="15">
+                    <Label x:Name="labelDay_6" FontSize="20" TextColor="Black" HorizontalOptions="Start" VerticalOptions="Center" WidthRequest="80" HorizontalTextAlignment="Center"/>
+                    <Image x:Name="image_6" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <Label x:Name="labelDescription_6" Text="облачно" FontSize="20" TextColor="Black" LineBreakMode="WordWrap" WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="labelDayNight_6" Text="10/-23°C" FontSize="20" TextColor="Black" HorizontalOptions="EndAndExpand"  VerticalOptions="Center"/>
+                </StackLayout>                
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
