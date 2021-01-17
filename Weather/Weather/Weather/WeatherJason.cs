@@ -10,7 +10,7 @@ namespace Weather
     class WeatherJson
     {
         public Coord coord { get; set; }
-        public Weather[] weather{ get; set; }
+        //public Weather[] weather{ get; set; }
         public string Name { get; set; }
         public Temperature Main { get; set; }
         public int visibility { get; set; }
@@ -51,13 +51,7 @@ namespace Weather
         public int sunset { get; set; }
     }
 
-    class Weather
-    {
-        public int id { get; set; }
-        public string main { get; set; }
-        public string description { get; set; }
-        public string icon { get; set; }
-    }
+   
 
     class CloudsINF
     {

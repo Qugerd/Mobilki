@@ -15,6 +15,8 @@ namespace Weather
     {
         public int dt { get; set; }
         public Temp temp { get; set; }
+
+       public Weather[] weather { get; set; }
         
     }
 
@@ -22,5 +24,13 @@ namespace Weather
     {
         public double day { get; set; }
         public double eve { get; set; }
+    }
+
+    class Weather
+    {
+        public int id { get; set; }
+        public string main { get; set; }
+        public string description { get; set; }
+        public string icon { get; set; }
     }
 }

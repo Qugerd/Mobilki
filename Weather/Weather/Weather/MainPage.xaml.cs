@@ -21,11 +21,14 @@ namespace Weather
         public double Longitude { get; set; }
 
         public string cityName = "Moscow";
-        
+        WeatherJson weatherJason;
+        WeatherJasonOneCall weatherJsonOneCall;
+        CancellationTokenSource cts;
+
         public MainPage()
         {
             InitializeComponent();
-            InternetInfo();                   
+            InternetInfo();
         }
 
         private async void InternetInfo()
@@ -35,7 +38,7 @@ namespace Weather
             if (current == NetworkAccess.Internet)
             {
                 GetCurrentLocation();
-                GetWeatherInfo(cityName);
+                GetWeatherInfo($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&lang=ru&appid=6e3c7091a8b557bb4861808f01c09db6");
             }
             else
             {
@@ -43,10 +46,8 @@ namespace Weather
             }
         }
 
-        private void GetWeatherInfo(string cityName)
+        private string GetWeatherInfo(string url)
         {
-            string url = $"http://api.openweathermap.org/data/2.5/weather?q={cityName}&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6";
-
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
@@ -55,40 +56,66 @@ namespace Weather
             using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
             {
                 response = streamReader.ReadToEnd();
-            }
+            }          
 
-            WeatherJson weatherJason = JsonConvert.DeserializeObject<WeatherJson>(response);           
+            return response;
+        }
 
-            string url2 = $"https://api.openweathermap.org/data/2.5/onecall?lat={weatherJason.coord.lat}&lon={weatherJason.coord.lon}&exclude=alerts,minutely&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6";
-            HttpWebRequest httpWebRequest2 = (HttpWebRequest)WebRequest.Create(url2);
-            HttpWebResponse httpWebResponse2 = (HttpWebResponse)httpWebRequest2.GetResponse();
-
-            string response2;
-
-            using (StreamReader streamReader = new StreamReader(httpWebResponse2.GetResponseStream()))
-            {
-                response2 = streamReader.ReadToEnd();
-            }
-
-            WeatherJasonOneCall weatherJason2 = JsonConvert.DeserializeObject<WeatherJasonOneCall>(response2);
-
-            LabelData.Text = UnixTimeToDateTime(weatherJason2.daily[0].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
-            LabelDayNight.Text = $"Днем {weatherJason2.daily[0].temp.day}/Ночью {weatherJason2.daily[0].temp.eve}";
+        private void Kek()
+        {
+            //current inf
             LabelTemp.Text = weatherJason.Main.temp.ToString("0") + "°C";
             LabelCity.Text = weatherJason.Name;
-            LabelYasno.Text = weatherJason.weather[0].description;
+            LabelYasno.Text = weatherJsonOneCall.daily[0].weather[0].description; 
             LabelFeelsLike.Text = "Ощущается как: " + weatherJason.Main.feels_like.ToString("0");
             labelPressureValue.Text = weatherJason.Main.pressure.ToString() + "гПа";
             LabelHumidityValue.Text = weatherJason.Main.humidity.ToString() + "%";
             LabelWindValue.Text = weatherJason.wind.speed.ToString("0") + "м/с";
             LabelCloudsValue.Text = weatherJason.clouds.all.ToString() + "%";
-            ImagePath.Source = $"https://openweathermap.org/img/wn/{weatherJason.weather[0].icon}@2x.png";
+            ImagePath.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[0].weather[0].icon}@2x.png";
             LabelSunriseValue.Text = UnixTimeToDateTime(weatherJason.sys.sunrise).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
             LabelSunsetValue.Text = UnixTimeToDateTime(weatherJason.sys.sunset).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
-        }
-        
-        CancellationTokenSource cts;
 
+            //daily inf
+            labelDayNightValue.Text = $"{weatherJsonOneCall.daily[0].temp.day.ToString("0")}/{weatherJsonOneCall.daily[0].temp.eve.ToString("0")}";            
+            //weekinf
+            //today
+            int i = 0;
+            labelDescription0.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            labelDayNight0.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+            image0.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            //
+            labelDay_1.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_1.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_1.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_1.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+            //
+            labelDay_2.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_2.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_2.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_2.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+            //
+            labelDay_3.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_3.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_3.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_3.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+             //
+            labelDay_4.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_4.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_4.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_4.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+             //
+            labelDay_5.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_5.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_5.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_5.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+             //
+            labelDay_6.Text = UnixTimeToDateTime(weatherJsonOneCall.daily[++i].dt).ToString("ddd", System.Globalization.CultureInfo.CreateSpecificCulture("ru-RU"));
+            labelDescription_6.Text = weatherJsonOneCall.daily[i].weather[0].description;
+            image_6.Source = $"https://openweathermap.org/img/wn/{weatherJsonOneCall.daily[i].weather[0].icon}@2x.png";
+            labelDayNight_6.Text = $"{weatherJsonOneCall.daily[i].temp.day.ToString("0")}/{weatherJsonOneCall.daily[i].temp.eve.ToString("0")}°C";
+            
+        }
         async Task GetCurrentLocation()
         {
             try
@@ -99,35 +126,13 @@ namespace Weather
 
                 if (location != null)
                 {
-                    string url = $"http://api.openweathermap.org/data/2.5/weather?lat={location.Latitude}&lon={location.Longitude}&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6";
-                    HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                    HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-
-                    string response;
-
-                    using (StreamReader streamReader = new StreamReader(httpWebResponse.GetResponseStream()))
-                    {
-                        response = streamReader.ReadToEnd();
-                    }
-                    WeatherJson kek = JsonConvert.DeserializeObject<WeatherJson>(response);
-                    
-                    
-                    LabelTemp.Text = kek.Main.temp.ToString("0") + "°C";
-                    LabelCity.Text = kek.Name;
-                    LabelYasno.Text = kek.weather[0].description;
-                    LabelFeelsLike.Text = "Ощущается как: " + kek.Main.feels_like.ToString("0");
-                    labelPressureValue.Text = kek.Main.pressure.ToString() + "гПа";
-                    LabelHumidityValue.Text = kek.Main.humidity.ToString() + "%";
-                    LabelWindValue.Text = kek.wind.speed.ToString("0") + "м/с";
-                    LabelCloudsValue.Text = kek.clouds.all.ToString() + "%";
-                    LabelSunriseValue.Text = UnixTimeToDateTime(kek.sys.sunrise).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
-                    LabelSunsetValue.Text = UnixTimeToDateTime(kek.sys.sunset).ToString("t", System.Globalization.CultureInfo.CreateSpecificCulture("sv-FI"));
-                    ImagePath.Source = $"https://openweathermap.org/img/wn/{kek.weather[0].icon}@2x.png";
-                    await DisplayAlert("Ваше местоположение", $"Геолокация определила что ваш город {kek.Name}?", "Понял") ;
-                    Console.WriteLine($"Latitude: {location.Latitude}, Longitude: {location.Longitude}, Altitude: {location.Altitude}");
-                }                
-            }            
-            catch 
+                    weatherJason = JsonConvert.DeserializeObject<WeatherJson>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/weather?lat={location.Latitude}&lon={location.Longitude}&units=metric&lang=ru&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                    weatherJsonOneCall = JsonConvert.DeserializeObject<WeatherJasonOneCall>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/onecall?lat={location.Latitude}&lon={location.Longitude}&units=metric&lang=ru&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                    Kek();
+                    await DisplayAlert("Ваше местоположение", $"Геолокация определила что ваш город {weatherJason.Name}?", "Понял");
+                }
+            }
+            catch
             {
                 await DisplayAlert("Ошибочка", "Не удалось разгодать ваше место положение", "Понял - принял");
             }
@@ -138,34 +143,35 @@ namespace Weather
             try
             {
                 string cityName = Editor.Text;
-                GetWeatherInfo(cityName);
+                weatherJason = JsonConvert.DeserializeObject<WeatherJson>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&lang=ru&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                weatherJsonOneCall = JsonConvert.DeserializeObject<WeatherJasonOneCall>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/onecall?lat={weatherJason.coord.lat}&lon={weatherJason.coord.lon}&units=metric&lang=ru&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                Kek();
             }
-            catch 
+            catch
             {
                 await DisplayAlert("Что - то пошло не так ...", "Введите правильное название города", "Повторить");
             }
-            
+
+        }
+        private async void OnEditorCompleted(object sender, EventArgs e)
+        {
+            try
+            {
+                string cityName = Editor.Text;
+                weatherJason = JsonConvert.DeserializeObject<WeatherJson>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/weather?q={cityName}&lang=ru&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                weatherJsonOneCall = JsonConvert.DeserializeObject<WeatherJasonOneCall>(GetWeatherInfo($"http://api.openweathermap.org/data/2.5/onecall?lat={weatherJason.coord.lat}&lon={weatherJason.coord.lon}&lang=ru&units=metric&appid=6e3c7091a8b557bb4861808f01c09db6"));
+                Kek();
+            }
+            catch
+            {
+                await DisplayAlert("Что - то пошло не так ...", "Введите правильное название города", "Повторить");
+            }
         }
 
         private DateTime UnixTimeToDateTime(double UnixTime)
         {
             DateTime origin = new DateTime(1970, 1, 1, 6, 0, 0);
             return origin.AddSeconds(UnixTime);
-
-        }
-
-        private async void OnEditorCompleted(object sender, EventArgs e)
-        {
-            try
-            {
-                string text = Editor.Text;
-                string cityName = text;
-                GetWeatherInfo(cityName);
-            }
-            catch 
-            {
-                await DisplayAlert("Что - то пошло не так ...", "Введите правильное название города", "Повторить");
-            }
         }
     }
 }
