@@ -16,3 +16,12 @@ C:\Users\Imposter\source\repos\Weather\Weather\Weather\bin\Debug\netstandard2.0\
 C:\Users\Imposter\source\repos\Weather\Weather\Weather\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\Imposter\source\repos\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.csproj.CopyComplete
 C:\Users\Imposter\source\repos\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.csprojAssemblyReference.cache
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.csprojAssemblyReference.cache
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.AssemblyInfoInputs.cache
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.AssemblyInfo.cs
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.csproj.CoreCompileInputs.cache
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.dll
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\ref\Weather.dll
+C:\Users\Imposter\Desktop\Mobilki\KEK\Weather\Weather\Weather\obj\Debug\netstandard2.0\Weather.pdb

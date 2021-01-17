@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r86atelnBC40k+yovWfI7lP5ZbR9m3ys6s5eZ8secqclY6yhOpe+9+rc5BPn/xBZ23KU3zPweUZqv3vJAj2RVg==",
+  "dgSpecHash": "lM9lQxNMW/PqxkpNHR8TCxkNJX+ctLjrWGe537T5I7sty7PiazuwkY89SiF7PyM3Rl01rq6VFCV8w1BJMEQqtg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather\\Weather.csproj",
+  "projectFilePath": "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather\\Weather.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Imposter\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Imposter\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

@@ -2041,11 +2041,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather.Android\\Weather.Android.csproj",
+      "projectUniqueName": "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather.Android\\Weather.Android.csproj",
       "projectName": "Weather.Android",
-      "projectPath": "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather.Android\\Weather.Android.csproj",
+      "projectPath": "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather.Android\\Weather.Android.csproj",
       "packagesPath": "C:\\Users\\Imposter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather.Android\\obj\\",
+      "outputPath": "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -2066,8 +2066,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather\\Weather.csproj": {
-              "projectPath": "C:\\Users\\Imposter\\source\\repos\\Weather\\Weather\\Weather\\Weather.csproj"
+            "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather\\Weather.csproj": {
+              "projectPath": "C:\\Users\\Imposter\\Desktop\\Mobilki\\KEK\\Weather\\Weather\\Weather\\Weather.csproj"
             }
           }
         }
